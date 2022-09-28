@@ -4,4 +4,4 @@ const {postVideoGames} = require ('./Controllers/postVideoGame')
 
 router.post('',postVideoGames)
 
-module.exports=router;
+module.exports= router;

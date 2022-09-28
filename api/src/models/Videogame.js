@@ -2,11 +2,12 @@ const { DataTypes } = require('sequelize');
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
-  // defino el modelo
+  // defino el modelo el ID, NOMBRE,DESCRIPTION Y PLATFORM NO PUEDEN FALTAR POR ESO EL ALLOWNULL
   sequelize.define('videogame', {
     id :{
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,// para que no choque con el id que viene desde la api
+      allowNull: false,
       primaryKey: true,
 
     },
@@ -19,8 +20,11 @@ module.exports = (sequelize) => {
       allowNull:false,
     },
     released:{
-      type: DataTypes.TEXT(8)
+      type: DataTypes.STRING
+
     },
+  
+  
     rating: {
       type: DataTypes.DECIMAL(10,1),
       validate : {
@@ -28,13 +32,12 @@ module.exports = (sequelize) => {
         max:5
       }
     },
-      platforms: {
-      type: DataTypes.ARRAY(DataTypes.TEXT),
+      platform: {
+      type: DataTypes.STRING,
       allowNull: false
     },
     createdAtDb:{
       type: DataTypes.BOOLEAN,
-      allowNull: false,
       defaultValue: true 
     }
     
