@@ -41,8 +41,29 @@ const { apiKey } = process.env;
          return totalVideos;
      };
 
+    const getById = async (id) => {
+    try{
+        const apiVideo = await axios( `https://api.rawg.io/api/games/${id}?key=${apiKey}`);
+        const data = await apiVideo.data;
+        const dataVideo ={
+            id: data.id,
+            name: data.name,
+            description: data.description_raw,
+            released: data.released,
+            rating: data.rating,
+            platforms: data.parent_platforms.map((p) => p.name),
+            img: data.background_image,
+            genres: data.genres
+        }
+        return dataVideo
+
+    }catch(e){
+        console.log(e)
+    }
+    }
  module.exports = {
                     getVideoDb,
                     getAllinfo,
-                    getVideoApi
+                    getVideoApi,
+                    getById
                     }

@@ -1,8 +1,11 @@
 const { Router } = require ("express")
 const { getAllinfo } = require ('./Controllers/getAllVg');
-const axios = require ('axios');
+
 
 const router = Router()
+
+
+
 
 
 
@@ -11,7 +14,7 @@ router.get('', async (req,res)=>{
     const vgTotal = await getAllinfo()
   
         if(name) {
-            let vgName = await vgTotal.filter(e =>e.name.toLowerCase().includes(name.toLowerCase()));
+            let vgName = await vgTotal.filter(e =>e.name.toLowerCase().includes(name.toLowerCase())); //le mandamos include para hacer la busqueda mas globar ;)
             vgName.length ?
             res.status(200).send(vgName) :
             res.status(404).send("Videogame Not Found")
