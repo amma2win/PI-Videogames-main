@@ -4,13 +4,13 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   return sequelize.define('genre', {
       
-  
+  //no hace falta pasarle ID ??
       // Name del género.
       name: { 
           type: DataTypes.STRING,
-          allowNull: false,
+          /* allowNull: false, */
 
       },
-      
+   
   },{timestamps : false});
 }

@@ -8,6 +8,7 @@ const router = Router()
 
 
 
+// dejemoslo, asi.. no puedo modularizar esto ... why??
 
 router.get('', async (req,res)=>{
     const{ name } = req.query;  // si me pasan name por query
@@ -25,6 +26,6 @@ router.get('', async (req,res)=>{
    
 });
 
-// aca genero el middleware
+
 
 module.exports = router;
