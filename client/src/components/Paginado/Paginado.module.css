@@ -1,0 +1,25 @@
+.paginado {
+    width: 100%;
+    display: flex;
+   list-style: none;
+   justify-content: center;
+   
+
+ 
+}
+
+.paginado li{
+    background-color: transparent;
+    width: 20px;
+    height: 25;
+    margin:5px;
+    padding: 5px;
+    
+
+}
+
+
+*{
+margin:0px;
+padding: 0%;
+}

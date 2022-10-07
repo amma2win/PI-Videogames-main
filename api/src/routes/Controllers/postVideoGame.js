@@ -6,7 +6,7 @@ const {Genre,Videogame} = require ('../../db');
 
 const postVideoGames = async(req, res) =>{
     // traigo data del body
-    const  { name, description, released, rating, platform, createdAtDb, genre} = req.body
+    const  { name, description, rating, platform, createdAtDb, genre} = req.body
     try {
       
       if (!name || !description || !platform){
@@ -15,7 +15,6 @@ const postVideoGames = async(req, res) =>{
       const newVideogame = await Videogame.create({
         name,
         description,
-        released,
         rating,
         platform,
         createdAtDb, 

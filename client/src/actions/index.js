@@ -19,12 +19,14 @@ export function filterByGenres (payload){
 
 export function getGenres(){
     return async function(dispatch){
-        var response = await axios ('http://localhost:3001/genres')
-       
+        var response = await axios ('http://localhost:3001/genres',{
+
+        });
         return dispatch({
             type: 'GET_GENRES',
             payload: response.data
         })
+        
     }
 }
 
@@ -43,12 +45,17 @@ export function filterCreated(payload){
         payload
     }
 }
-
+export function postVgames(payload){
+    return async function (dispatch){
+        const response = await axios.post('http://localhost:3001/videogames',payload)
+        return response;
+    }
+}
 export function getNameVgames(name){
 
     return async function(dispatch){
         try {
-            var findName = await axios.get('http://localhost:3001/videogames?name='+ name);
+            var findName = await axios.get('http://localhost:3001/videogames?name='+ name);  // aca me trabe un rato por no buscar bien !
             return dispatch({
                 type: 'GET_NAME_VGAMES',
                 payload: findName.data,
